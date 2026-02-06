@@ -1,6 +1,6 @@
 # Opinionated Global Admin security best practices
 
-> Note: This project is not associated or endorsed by Microsoft
+> Note: This project is not associated with, or endorsed by Microsoft
 
 ## Why this page?
 
@@ -42,6 +42,20 @@ From the following unordered options, we can select those that make sense to our
 - conditional access policy for compliant device
 - conditional access policy for trusted network location
 - dedicated privileged admin workstation
+
+## Controls, boundaries, exposures
+
+### PIM is not a security boundary
+
+A security boundary in Microsoft documentation generally refers to something that enforces strong isolation between different trust zones (e.g., tenant boundaries, identity authentication protections, etc.). PIM doesn’t provide that kind of isolation on its own. Instead:
+
+- PIM is a governance and access control service designed to help you manage and reduce standing privileged access by using just-in-time (JIT) activation, approval workflows, MFA requirements, and auditing.
+- It reduces risk by limiting when and how users can activate privileged roles, but it isn’t itself a security perimeter that stops attackers who already have valid authentication and certain privileges.
+
+**Exposure:** the risk remains: if a PIM-eligible account is compromised by other means, it can be used to abuse the privileges it holds.
+
+> Because PIM isn’t a security boundary by itself, Microsoft and security practitioners recommend using PIM as part of a layered identity security strategy - with Conditional Access, MFA, privileged access workstations (PAWs), monitoring, and alerting - to achieve stronger overall protection.
+
 
 ## More to come
 
